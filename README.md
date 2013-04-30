@@ -1,4 +1,4 @@
 ruby-course
 ===========
 
-Ruby Programming demo Rails app
+Ruby Programming Heroku App
