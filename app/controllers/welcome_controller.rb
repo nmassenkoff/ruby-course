@@ -27,7 +27,9 @@ class WelcomeController < ApplicationController
       if !(params[:student][:course] == 'cs132a' or params[:student][:course] == 'cis113')
         format.html { redirect_to  '/error'}
       else
-        if params[:url] =~ /^http:\/\/\w+-\w*-\d{4}\.herokuapp.com\/?$/
+        #if params[:url] =~ /^http:\/\/\w+-\w*-\d{4}\.herokuapp.com\/?$/
+        # allow custom subdomains
+        if params[:url] =~ /^http:\/\/[\w+-.]+\.herokuapp.com\/?$/
           if @student.save and @student.urls.create!({:name => '',:url => params[:url]}) 
             format.html { redirect_to  '/urls', notice: 'Url was successfully created.' }
             format.json { render json: @url, status: :created, location: @url }
