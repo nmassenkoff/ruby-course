@@ -46,11 +46,24 @@
 <div style="margin:1em 0; height:40px;clear:both;"><br></div>
 <div class="row">
   <div class="twelve columns" style="border:solid 8px #ccc">
-    <h2><tt>your output will go here...</tt></h2>
-    <h5 style="font-weight: bold">
-      When you are finished this assignment, your app will display links to class Heroku web sites here. 
-      Go to the <a href="http://polar-journey-7101.herokuapp.com">example</a> to see how your
-      page should behave. 
-    </h5>
+    <h2><tt>Previous Visitors URLs...</tt></h2>
+    <table>
+	<tr>
+		<th>Course</th>
+		<th>Name</th>
+		<th>URL</th>
+	</tr>
+
+	<% @students.each do |student| %>
+	<tr>
+		<td><%= student.course %></td>
+		<td><%= student.name %></td>
+		<td><% student.urls.each do |u| %>
+		<a href="<%= u.url %>"><%= u.url %></a>
+		<% end %>
+		</td>
+	</tr>
+	<% end %>
+	</table>
   </div>
 </div>
