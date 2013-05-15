@@ -3,5 +3,5 @@ class Url < ActiveRecord::Base
   belongs_to :student
   # add validation so that only URLs that end with herokuapp.com are accepted.
   VALID_HEROKU_REGEX = /herokuapp\.com\z/i
-  validates :url, :presence true, format: { with: VALID_HEROKU_REGEX }
+  validates :url, :presence => true, format: { with: VALID_HEROKU_REGEX }
 end
